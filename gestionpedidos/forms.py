@@ -15,7 +15,8 @@ class AgregarPropiedad(forms.Form):
     ciudad = forms.CharField()
     descripcion = forms.CharField()
     precio = forms.FloatField()
-    imagen = forms.CharField(required=False)
+    imagen = forms.ImageField(upload_to='gestionpedidos/photos')
+    # imagen = forms.CharField(required=False)
 
 
 class crearUsuario(UserCreationForm):
