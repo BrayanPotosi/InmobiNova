@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9=#2+n=oey+addo=%upcc8n#1dlndjbwh8grdw#euvtp)tate4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -79,11 +79,24 @@ WSGI_APPLICATION = 'tienda.wsgi.application'
 import dj_database_url
 from decouple import config
 
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'usuarios',
+        'USER': 'adminbp',
+        'PASSWORD': 'cualquiera',
+        'PORT': '5432',
+        'HOST': 'localhost',
+    }
 }
+
+# Heroku conf DB
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=config('DATABASE_URL')
+#     )
+# }
 
 
 # Password validation
